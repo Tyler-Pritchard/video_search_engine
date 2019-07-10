@@ -1,11 +1,11 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
-import VideoList from "./VideoList";
-import VideoDetail from "./VideoDetail";
+import ImageList from "./ImageList";
+import ImageDetail from "./ImageDetail";
 
 class App extends React.Component {
-  state = { videos: [], selectedVideo: null };
+  state = { images: [], selectedImage: null };
 
   componentDidMount() {
     this.onTermSubmit("coding");
@@ -18,13 +18,13 @@ class App extends React.Component {
       }
     });
     this.setState({
-      videos: response.data.items,
-      selectedVideo: response.data.items[0]
+      images: response.data.items,
+      selectedImage: response.data.items[0]
     });
   };
 
-  onVideoSelect = video => {
-    this.setState({ selectedVideo: video });
+  onImageSelect = image => {
+    this.setState({ selectedImage: image });
   };
 
   render() {
@@ -34,12 +34,12 @@ class App extends React.Component {
         <div className="ui grid">
           <div className="ui row">
             <div className="eleven wide column">
-              <VideoDetail video={this.state.selectedVideo} />
+              <ImageDetail image={this.state.selectedImage} />
             </div>
             <div className="five wide column">
-              <VideoList
-                onVideoSelect={this.onVideoSelect}
-                videos={this.state.videos}
+              <ImageList
+                onImageSelect={this.onImageSelect}
+                images={this.state.images}
               />
             </div>
           </div>
