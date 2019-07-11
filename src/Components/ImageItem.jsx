@@ -1,16 +1,16 @@
 import "./ImageItem.css";
 import React from "react";
 
-const ImageItem = ({ image, onimageSelect }) => {
+const ImageItem = ({ props }) => {
   return (
-    <div onClick={() => onImageSelect(image)} className="image-item">
+    <div className="image-item">
       <img
-        alt={image.snippet.title}
+        alt={props.data.resources.image_url}
         className="ui image"
-        src={image.snippet.thumbnails.medium.url}
+        src={props.data.resources.image_url}
       />
       <div className="content">
-        <div className="header">{image.snippet.title}</div>
+        <div className="header">Some Text</div>
       </div>
     </div>
   );

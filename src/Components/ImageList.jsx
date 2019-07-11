@@ -2,12 +2,13 @@ import React from "react";
 import ImageItem from "./ImageItem";
 
 const ImageList = ({ images, onImageSelect }) => {
-  const renderedList = images.map(video => {
+  const renderedList = images.map(image => {
+    console.log(this.props, "SOME PROPS");
     return (
       <ImageItem
-        key={video.id.videoId}
+        key={image.id.imageId}
         onImageSelect={onImageSelect}
-        video={video}
+        image={image}
       />
     );
   });

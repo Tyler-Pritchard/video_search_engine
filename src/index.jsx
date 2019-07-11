@@ -1,21 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
-import reduxThunk from "redux-thunk";
+import { ApolloProvider } from "react-apollo";
+import ApolloClient from "apollo-boost";
+import App from "./Components/App";
 
-import App from "./components/App";
-import reducers from "./reducers";
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducers,
-  composeEnhancers(applyMiddleware(reduxThunk))
-);
+const client = new ApolloClient({
+  uri: "https://silkswap.com/graphql"
+});
 
 ReactDOM.render(
-  <Provider store={store}>
+  <ApolloProvider client={client}>
     <App />
-  </Provider>,
-  document.querySelector("#root")
+  </ApolloProvider>,
+  document.getElementById("root")
 );

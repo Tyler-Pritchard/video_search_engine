@@ -1,13 +1,14 @@
 import React from "react";
+
 const ImageDetail = ({ image }) => {
   if (!image) {
     return <div>Loading...</div>;
   }
-  const imageSrc = `https://www.silkswap.com/graphql${image.id.imageId}`;
+  const imageSrc = `https://www.silkswap.com/graphql`;
   return (
     <div>
       <div className="ui embed">
-        <iframe title="image player" src={imageSrc} />
+        <iframe title="image" src={imageSrc} />
       </div>
       <div className="ui segment">
         <h4 className="ui header">{image.snippet.title}</h4>

@@ -1,37 +1,33 @@
-import React, { Component } from "react";
+import React from "react";
 import SearchBar from "./SearchBar";
-import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import ImageList from "./ImageList";
 import ImageDetail from "./ImageDetail";
 // import Header from "./Header";
 
-class App extends Component {
-  state = { images: [], selectedImage: null };
+class App extends React.Component {
+  state = {
+    history: [], // id of seed, location of scroll, exit id / title
+    newHistory: [],
+    search: [], // current search text
+    searchText: "",
+    showExplore: false,
+    exploreId: "",
+    historyText: "welcome to the world of wonder",
+    timeoutId: ""
+  };
+
   componentDidMount() {
     this.onTermSubmit("coding");
   }
-
-  onTermSubmit = async term => {
-    const response = await api.get("/search", {
-      params: {
-        q: term
-      }
-    });
-    this.setState({
-      images: response.data.items,
-      selectedImage: response.data.items[0]
-    });
-  };
 
   onImageSelect = image => {
     this.setState({ selectedImage: image });
   };
 
   render() {
-    console.log(this.state, "STATE");
     return (
-      <Router>
+      <div>
         {/* <Header /> */}
         <div className="ui container">
           <SearchBar onFormSubmit={this.onTermSubmit} />
@@ -55,7 +51,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </Router>
+      </div>
     );
   }
 }
