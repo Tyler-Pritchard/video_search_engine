@@ -6,7 +6,7 @@ import {
 export const fetchItems = () => {
   return async dispatch => {
     try {
-      const itemsJSON = await fetch("https://gather-cafe-backend.herokuapp.com/items");
+      const itemsJSON = await fetch("https://silkswap.com/");
       const items = await itemsJSON.json();
 
       dispatch({
@@ -30,7 +30,7 @@ export const addItemToList = payload => {
   }
 }
 
-export const removeItemInList = payload => {
+export const removeItemFromList = payload => {
   return {
     type: 'REMOVE_ITEM_FROM_LIST',
     payload
