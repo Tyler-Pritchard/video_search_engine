@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "semantic-ui-css/semantic.min.css";
 import { Provider } from "react-redux";
-import { fetchItems } from "./redux/actions/items";
-import store from "./redux/store";
+import { createStore, applyMiddleware, compose } from "redux";
+import reduxThunk from "redux-thunk";
 
-const newStore = store();
-newStore.dispatch(fetchItems());
+import App from "./components/App";
+import reducers from "./reducers";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(reduxThunk))
+);
 
 ReactDOM.render(
-  <Provider store={newStore}>
+  <Provider store={store}>
     <App />
   </Provider>,
-
-  document.getElementById("root")
+  document.querySelector("#root")
 );

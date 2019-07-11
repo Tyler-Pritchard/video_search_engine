@@ -1,7 +1,7 @@
 import "./ImageItem.css";
 import React from "react";
 
-const ImageItem = ({ image, onImageSelect }) => {
+const ImageItem = ({ image, onimageSelect }) => {
   return (
     <div onClick={() => onImageSelect(image)} className="image-item">
       <img

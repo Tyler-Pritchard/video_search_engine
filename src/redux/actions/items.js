@@ -6,7 +6,7 @@ import {
 export const fetchItems = () => {
   return async dispatch => {
     try {
-      const itemsJSON = await fetch("https://silkswap.com/");
+      const itemsJSON = await fetch("https://silkswap.com/graphql");
       const items = await itemsJSON.json();
 
       dispatch({

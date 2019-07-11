@@ -3,7 +3,7 @@ const ImageDetail = ({ image }) => {
   if (!image) {
     return <div>Loading...</div>;
   }
-  const imageSrc = `https://www.silkswap.com/graphql/${image.id.imageId}`;
+  const imageSrc = `https://www.silkswap.com/graphql${image.id.imageId}`;
   return (
     <div>
       <div className="ui embed">

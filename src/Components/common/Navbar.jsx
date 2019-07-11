@@ -183,4 +183,5 @@ ResponsiveContainer.propTypes = {
 };
 
 const Navbar = () => <ResponsiveContainer />;
-export default Navbar;
+
+export default DesktopContainer;
